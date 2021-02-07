@@ -20,6 +20,10 @@ if ( ! class_exists( 'CSF_Field_callback' ) ) {
 
       if ( is_array( $this->field['function'] ) ) {
 
+        if ( ! isset( $this->field['function'][0] ) || ! isset( $this->field['function'][1] ) ) {
+          return false;
+        }
+
         if ( ! method_exists( $this->field['function'][0], $this->field['function'][1] ) ) {
           return false;
         }
